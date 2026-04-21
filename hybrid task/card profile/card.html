@@ -1,81 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Profile Card</title>
-  
-  <style>
-    /* 1. Style the main background */
-    body {
-      background-color: #e2e8f0; /* A soft blue-gray background */
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 50px;
-      display: flex;
-      justify-content: center; /* Centers the card on the screen */
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Student Form</title>
+    <style>
+        /* Modern CSS Reset and Variables */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --bg-color: #f8f9fa;
+            --form-bg: #ffffff;
+            --text-color: #333;
+            --border-color: #ced4da;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
 
-    /* 2. Style the exact Div container (The Card) */
-    .profile-card {
-      background-color: white;
-      width: 300px;
-      padding: 30px;
-      border-radius: 15px; /* Rounds the corners of the box */
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Adds a 3D shadow */
-      text-align: center; /* Centers all text inside */
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    /* 3. Style the image */
-    .profile-card img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%; /* Makes the image a perfect circle! */
-      border: 4px solid #3b82f6; /* Adds a blue ring around the image */
-      object-fit: cover;
-    }
+        body {
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
 
-    /* 4. Style the text and button */
-    .profile-card h2 {
-      color: #1e293b;
-      margin-top: 15px;
-      margin-bottom: 5px;
-    }
+        /* Form Container Styling */
+        .form-container {
+            background-color: var(--form-bg);
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-top: 6px solid var(--secondary-color);
+        }
 
-    .profile-card p {
-      color: #64748b;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-    .profile-card button {
-      background-color: #3b82f6; /* Blue button */
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 25px; /* Pill-shaped button */
-      font-size: 16px;
-      cursor: pointer;
-    }
+        .form-header h2 {
+            color: var(--primary-color);
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
 
-    /* 5. Add a hover effect to the button */
-    .profile-card button:hover {
-      background-color: #2563eb; /* Turns a darker blue when you hover over it */
-    }
-  </style>
+        .form-header p {
+            color: #666;
+            font-size: 14px;
+        }
 
+        /* Fieldset & Layout */
+        fieldset {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            background-color: #fafbfc;
+        }
+
+        legend {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .grid-2-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Input Styling */
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        .grid-2-col .input-group {
+            margin-bottom: 0; /* Reset for grid */
+        }
+
+        label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 6px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+
+        /* Advanced Focus Effects */
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+
+        /* Radio & Checkbox Styling */
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            padding: 10px 0;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        /* File Upload Styling */
+        .file-upload-container {
+            position: relative;
+            width: 100%;
+            border: 2px dashed var(--secondary-color);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            background-color: rgba(52, 152, 219, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .file-upload-container:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+
+        .file-upload-container input[type="file"] {
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .file-upload-container::before {
+            content: '📸 Click "Choose File" to upload your passport-size photo';
+            display: block;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .grid-2-col {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <div class="profile-card">
-    
-    <img src="https://i.pravatar.cc/150?img=11" alt="Profile Picture">
-    
-    <h2>Mohammad</h2>
-    <p>Future Front-End Developer | Code Enthusiast</p>
-    
-    <button>Connect</button>
+    <div class="form-container">
+        <div class="form-header">
+            <h2>Student Enrollment Form</h2>
+            <p>Please fill out all required fields carefully.</p>
+        </div>
 
-  </div>
+        <form action="#" method="POST" enctype="multipart/form-data">
+            
+            <fieldset>
+                <legend>1. Academic Information</legend>
+                <div class="grid-2-col">
+                    <div class="input-group">
+                        <label for="university">Institution</label>
+                        <select id="university" name="university" required>
+                            <option value="uet-peshawar" selected>University of Engineering & Technology, Peshawar</option>
+                            <option value="other">Other Institution</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="department">Department</label>
+                        <select id="department" name="department" required>
+                            <option value="cs" selected>Computer Science & IT</option>
+                            <option value="ee">Electrical Engineering</option>
+                            <option value="me">Mechanical Engineering</option>
+                            <option value="ce">Civil Engineering</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="semester">Current Semester</label>
+                        <select id="semester" name="semester" required>
+                            <option value="" disabled selected>Select Semester</option>
+                            <option value="1">1st Semester</option>
+                            <option value="2">2nd Semester</option>
+                            <option value="3">3rd Semester</option>
+                            <option value="4">4th Semester</option>
+                            <option value="5">5th Semester</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="reg-number">Registration Number</label>
+                        <input type="text" id="reg-number" name="reg-number" placeholder="e.g., 2025-CS-001" required>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>2. Personal Details</legend>
+                <div class="grid-2-col">
+                    <div class="input-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" name="first-name" placeholder="Enter your first name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Gender</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="male" required> Male
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="gender" value="female"> Female
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>3. Contact Information</legend>
+                <div class="grid-2-col">
+                    <div class="input-group">
+                        <label for="email">Student Email</label>
+                        <input type="email" id="email" name="email" placeholder="example@student.edu.pk" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="03XX-XXXXXXX" pattern="[0-9]{4}-[0-9]{7}" required>
+                    </div>
+                </div>
+                
+                <div class="input-group" style="margin-top: 20px;">
+                    <label for="address">Permanent Address</label>
+                    <textarea id="address" name="address" rows="3" placeholder="Enter your full street address" required></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>4. Profile Picture</legend>
+                <div class="file-upload-container">
+                    <input type="file" id="profile-pic" name="profile-pic" accept="image/png, image/jpeg, image/jpg" required>
+                </div>
+            </fieldset>
+
+            <button type="submit" class="submit-btn">Submit Enrollment Form</button>
+
+        </form>
+    </div>
 
 </body>
 </html>

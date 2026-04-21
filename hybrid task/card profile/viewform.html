@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment Successful</title>
+    <style>
+        /* Reusing the same variables for a consistent theme */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --success-color: #27ae60;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --border-color: #e0e0e0;
+            --text-color: #333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            color: var(--text-color);
+        }
+
+        .summary-container {
+            background-color: var(--card-bg);
+            max-width: 700px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-top: 6px solid var(--success-color);
+        }
+
+        /* Success Header Styling */
+        .success-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .success-icon {
+            background-color: #e8f8f5;
+            color: var(--success-color);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            margin: 0 auto 15px auto;
+        }
+
+        .success-header h2 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        /* Profile Card Styling */
+        .profile-card {
+            display: flex;
+            gap: 30px;
+            background-color: #fafbfc;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .profile-pic-box {
+            width: 120px;
+            height: 140px;
+            background-color: #eaeaea;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+            flex-shrink: 0;
+        }
+
+        /* Data Grid */
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .data-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .data-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .data-value {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        /* Action Buttons */
+        .button-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-print {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-print:hover { background-color: #1a252f; }
+
+        .btn-home {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-home:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Make it mobile friendly */
+        @media (max-width: 600px) {
+            .profile-card {
+                flex-direction: column;
+                align-items: center;
+            }
+            .data-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .full-width {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="summary-container">
+        
+        <div class="success-header">
+            <div class="success-icon">✓</div>
+            <h2>Enrollment Successful!</h2>
+            <p>Your application has been saved to the database.</p>
+        </div>
+
+        <div class="profile-card">
+            
+            <div class="profile-pic-box">
+                [Student Photo<br>Appears Here]
+            </div>
+
+            <div class="data-grid">
+                <div class="data-item full-width">
+                    <span class="data-label">Institution</span>
+                    <span class="data-value">University of Engineering & Technology, Peshawar</span>
+                </div>
+                
+                <div class="data-item">
+                    <span class="data-label">Full Name</span>
+                    <span class="data-value">Malik Abbas</span>
+                </div>
+                
+                <div class="data-item">
+                    <span class="data-label">Reg Number</span>
+                    <span class="data-value">2025-CS-001</span>
+                </div>
+
+                <div class="data-item">
+                    <span class="data-label">Department</span>
+                    <span class="data-value">Computer Science & IT</span>
+                </div>
+
+                <div class="data-item">
+                    <span class="data-label">Semester</span>
+                    <span class="data-value">4th Semester</span>
+                </div>
+
+                <div class="data-item">
+                    <span class="data-label">Email</span>
+                    <span class="data-value">m.abbas@student.uet.edu.pk</span>
+                </div>
+
+                <div class="data-item">
+                    <span class="data-label">Phone</span>
+                    <span class="data-value">0300-1234567</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <a href="#" class="btn btn-print" onclick="window.print(); return false;">Print Copy</a>
+            <a href="D:\htmls-CODES---\WEB-DEV-CODES---\hybrid task\card profile\card.html" class="btn btn-home">Return to Home</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
