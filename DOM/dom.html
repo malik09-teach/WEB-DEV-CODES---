@@ -7,14 +7,6 @@
 <style>
 
 
-.box{
-height: 45px;
-width: 50px;
-border: 2px solid black;
-margin: 5px;
-padding: 5px;
-}
-
 
 </style>
 
@@ -25,23 +17,25 @@ padding: 5px;
 <body>
 
 <div class="container">
-<div id="box1"  class="box">box1</div>
-<div class="box">box2</div>
-<div class="box">box3</div>
-<div class="box">box4</div>
-<div class="box">box5</div>
 
+<div class="box">hello how are you</div>
+<div class="box">i am fine what about you </div>
 
 
 </div>
 
-<script src="script.js"></script>
+<script src="stylescript.js"></script>
+
+
 
 
 
 <script>
 
-
+let div=document.createElement("div");
+div.innerHTML="i am  working as dev <b> MALIK </b>"
+div.setAttribute("class","created");
+document.querrySelector("./container").append(div);
 
 
 
