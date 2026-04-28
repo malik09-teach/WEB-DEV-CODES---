@@ -19,10 +19,24 @@ if we add the  element then it will apply on the same index
 
 
 
-//  by get id 
-
-
-
-
-
+/* by get id 
 document.getElementById("box1").style.backgroundColor ="red"
+*/
+
+
+
+// BY ON qureyselector
+
+
+// for single 
+// document.querySelector(".box").style.backgroundColor="green"
+
+
+// for all
+
+document.querySelectorAll(".box").forEach(e=>{
+e.style.backgroundColor="green"
+
+})
+
+
