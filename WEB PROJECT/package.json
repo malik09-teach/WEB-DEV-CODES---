@@ -13,6 +13,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "date-time": "^4.0.0",
     "slugify": "^1.6.9"
   }
 }
