@@ -1,5 +1,4 @@
 
-// 1. Import built-in and custom modules
 const http = require('http');
 const addNumbers = require('./math');
 
@@ -9,6 +8,8 @@ const server = http.createServer((req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
     res.end(`Hello! The sum of 100 and 5 is ${result}`);
+    
+
 });
 
 // 3. Tell the server to listen on a port

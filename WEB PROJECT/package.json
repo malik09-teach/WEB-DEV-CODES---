@@ -1,5 +1,5 @@
 {
-  "name": "web-project",
+  "name": "project_pack",
   "version": "1.0.0",
   "description": "this is the ML base learning website",
   "keywords": [
@@ -14,6 +14,8 @@
   },
   "dependencies": {
     "date-time": "^4.0.0",
+    "express": "^5.2.1",
     "slugify": "^1.6.9"
-  }
+  },
+  "devDependencies": {}
 }
