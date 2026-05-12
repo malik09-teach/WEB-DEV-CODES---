@@ -1,6 +1,26 @@
-
+const app=require('express')
 const http = require('http');
 const addNumbers = require('./math');
+
+
+
+app.get('/',(req,res)=>{
+let arr=[1,2,3,4,5]
+
+
+res.render("index",{arr})
+
+
+
+
+})
+
+
+
+
+
+
+
 
 // 2. Create the server logic
 const server = http.createServer((req, res) => {
@@ -11,6 +31,8 @@ const server = http.createServer((req, res) => {
     
 
 });
+
+
 
 // 3. Tell the server to listen on a port
 server.listen(5000, 'localhost', () => {

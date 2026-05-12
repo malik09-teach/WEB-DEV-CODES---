@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "date-time": "^4.0.0",
+    "ejs": "^5.0.2",
     "express": "^5.2.1",
     "slugify": "^1.6.9"
-  },
-  "devDependencies": {}
+  }
 }
